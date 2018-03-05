@@ -20,6 +20,7 @@ export class RegisterPage {
 	@ViewChild('password') password;
   @ViewChild('firstName') fname;
 	@ViewChild('lastName') lname;
+  @ViewChild('cpassword') cpassword;
 
   constructor(private alertCtrl: AlertController,private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -37,17 +38,22 @@ export class RegisterPage {
   }
 
   registerUser() {
+    if(this.password.value + '' === this.cpassword.value + ''){
+                this.fire.auth.createUserWithEmailAndPassword(this.user.value , this.password.value)
+                .then(data => {
+                  console.log('got data ', data);
+                  this.alert('Registered! Welcome ' + this.fname.value + '');
+                })
+                .catch(error => {
+                  console.log('got an error ', error);
+                  this.alert(error.message);
+                });
+              	console.log('Would register user with ', this.user.value, this.password.value);
+              }
+  else{
 
-    this.fire.auth.createUserWithEmailAndPassword(this.user.value , this.password.value)
-    .then(data => {
-      console.log('got data ', data);
-      this.alert('Registered! Welcome ' + this.fname.value + '');
-    })
-    .catch(error => {
-      console.log('got an error ', error);
-      this.alert(error.message);
-    });
-  	console.log('Would register user with ', this.user.value, this.password.value);
+              this.alert('Not matching passwords!');
+
   }
-
+}
 }
