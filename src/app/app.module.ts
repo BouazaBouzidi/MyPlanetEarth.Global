@@ -5,21 +5,45 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { LoggedinPage } from '../pages/loggedin/loggedin';
+import { ForgotPage } from '../pages/forgot/forgot';
+
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+const firebaseAuth = {
+  apiKey: "AIzaSyCNEseUowrmdwRyZSsOGjwNa_ssy5kQq2E",
+  authDomain: "awesome-project-40166.firebaseapp.com",
+  databaseURL: "https://awesome-project-40166.firebaseio.com",
+  projectId: "awesome-project-40166",
+  storageBucket: "",
+  messagingSenderId: "786320161750"
+};
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage,
+    ForgotPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseAuth),
+    AngularFireAuthModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    LoginPage,
+    RegisterPage,
+    LoggedinPage,
+    ForgotPage
   ],
   providers: [
     StatusBar,
