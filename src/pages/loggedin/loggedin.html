@@ -1,0 +1,42 @@
+<!--
+  Generated template for the LoggedinPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Take a photo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-row style="height:6px"></ion-row>
+
+  <div text-center>
+  <img style="width: 280px; height: 350px;" [src]="captureDataUrl" *ngIf="captureDataUrl"/>
+  </div>
+  
+
+
+  <ion-item *ngIf = "captureDataUrl">
+      <ion-label floating>Tree specie</ion-label>
+      <ion-input required type="text" minlength = "2" #treespecie></ion-input>
+  </ion-item>
+
+  <ion-item *ngIf = "captureDataUrl">
+      <ion-label floating>Free comment</ion-label>
+      <ion-input type="text" #comment></ion-input>
+  </ion-item>
+
+  
+  <button ion-button full large (click)="upload()" *ngIf="captureDataUrl"> Send</button>
+  <ion-row style="height:4px"></ion-row>
+
+  <button ion-button full large color="dark" (click)="takePhoto()" *ngIf="captureDataUrl"><pre>Take photo </pre><ion-icon ios="ios-camera" md="md-camera"></ion-icon>
+  </button>
+</ion-content>

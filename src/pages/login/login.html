@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sign in to MyPlanetEarth
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding >
+
+  <ion-item>
+    <ion-label floating>Email</ion-label>
+    <ion-input type="text" #email></ion-input>
+  </ion-item>
+  
+  <ion-row style="height:6px"></ion-row>
+
+  <ion-item>
+    <ion-label floating>Password</ion-label>
+    <ion-input type="password" #password></ion-input>
+
+  </ion-item>
+
+  <ion-row style="height:9px"></ion-row>
+  
+  
+  <button block ion-button (click)="signInUser()" >Sign in</button>
+
+  <button full ion-button color = "light" (click)="register()" >Create an account</button>
+  <button ion-button clear item-right (click)="forgot()" style="float: right;">Forgot Password?</button>
+</ion-content>
+
