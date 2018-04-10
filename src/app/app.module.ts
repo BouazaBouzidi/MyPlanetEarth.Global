@@ -10,6 +10,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { ForgotPage } from '../pages/forgot/forgot';
+import{ PartnersPage} from '../pages/partners/partners';
 
 //firebase imports
 import { AngularFireModule } from 'angularfire2';
@@ -19,6 +20,9 @@ import { AngularFireStorageModule } from 'angularfire2/storage';
 
 //Geolocation import
 import { Geolocation } from '@ionic-native/geolocation';
+
+//import in-app browser
+import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 //firebase config
 const config ={
@@ -40,7 +44,8 @@ import { Camera,CameraOptions } from '@ionic-native/camera';
     ForgotPage,
     LoggedinPage,
     RegisterPage,
-    LoginPage
+    LoginPage,
+    PartnersPage
   ],
   imports: [
     BrowserModule,
@@ -56,12 +61,14 @@ import { Camera,CameraOptions } from '@ionic-native/camera';
     LoginPage,
     RegisterPage,
     LoggedinPage,
-    ForgotPage
+    ForgotPage,
+    PartnersPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    InAppBrowser,
     Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

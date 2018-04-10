@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { LoggedinPage } from '../pages/loggedin/loggedin';
 import { ForgotPage } from '../pages/forgot/forgot';
+import{ PartnersPage} from '../pages/partners/partners';
 
 @Component({
   templateUrl: 'app.html'

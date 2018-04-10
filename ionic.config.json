@@ -1,6 +1,6 @@
 {
   "name": "myPlanetEarth",
-  "app_id": "",
+  "app_id": "b99c9a48",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -8,7 +8,7 @@ import { AngularFireStorage,AngularFireUploadTask } from 'angularfire2/storage';
 import * as firebase from 'firebase';
 import {LoginPage} from '../login/login';
 import { Geolocation } from '@ionic-native/geolocation';
-
+import { PartnersPage } from '../partners/partners';
 
 
 @IonicPage()
@@ -32,13 +32,11 @@ export class LoggedinPage {
     }
 
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad LoggedinPage');
   }
   //Variables
   captureDataUrl: string;
   lat: number;
   long: number;
- 
 
   alert(message: string , title: string) {
     this.alertCtrl.create({
@@ -112,30 +110,11 @@ export class LoggedinPage {
 
       })
 
-     /* firebase.database().ref(`Users/`).push({
-        Email : email,
-        uid : uid
-      })*/
-
-      // Get the current User 
-      //const userObject = firebase.database().ref().child('Users/');
-      //userObject.once('value',snap => snap.child()
-      //);
-    //var olddata  ; 
-
-    //MyPhotos.push(imageName);
-
-    //this.usersList = this.fdb.list(`Users/`+ `${uid}/`);
-
-    //firebase.database().ref(`Users/`+ `${uid}/`).child("MyPhotos").once('value',snap => olddata = snap.val()) ;
-    //this.alert(olddata,olddata)
-    
-
-      var uploadTask = firebase.storage().ref().child( `Email: ${email}/` + `UID: ${uid}/` + imageName ).putString(this.captureDataUrl,'data_url');
+    var uploadTask = firebase.storage().ref().child( `Email: ${email}/` + `UID: ${uid}/` + imageName ).putString(this.captureDataUrl,'data_url');
       uploadTask.then(data => {
         alert("The photo is sent");
         this.captureDataUrl = "";
-        this.navCtrl.push(LoggedinPage);
+        this.navCtrl.push(PartnersPage);
 
       }).catch(error => {
           this.alert(error.message,"Oups!");
@@ -143,26 +122,3 @@ export class LoggedinPage {
       });
     }}
   }
-
-      /*
-        let storageRef = this.store.ref;
-        // Create a timestamp as filename
-        const filename = Math.floor(Date.now() / 1000);
-
-        // Create a reference to 'images/todays-date.jpg'
-        storageRef.
-        const imageRef = storageRef.child(`images/${filename}.jpg`);
-
-        imageRef.putString(this.captureDataUrl , firebase.storage.StringFormat.DATA_URL).then(function(snapshot) {
-          console.log('Uploaded a data_url string!');
-        });
-        */
-    //this.camera.getPicture().then((imageData) => {
-    //   this.imageURL = imageData
-    //   this.photos.push({
-    //     imageURL : this.imageURL
-    //   }
-    //   )
-    //}, (err) => {
-    //   console.log(err);
-    // });
