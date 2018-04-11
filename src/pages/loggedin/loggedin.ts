@@ -37,7 +37,6 @@ export class LoggedinPage {
 
   ionViewDidLoad() {
   }
-  //Variables
   captureDataUrl: string;
   lat: number;
   long: number;
@@ -77,7 +76,7 @@ export class LoggedinPage {
   }
 
   upload() {
-    
+
       if(this.treespecie.value.length < 2){
         alert("Tree specie is required!")
       }else{
