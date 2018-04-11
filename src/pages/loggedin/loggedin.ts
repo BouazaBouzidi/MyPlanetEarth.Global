@@ -76,7 +76,8 @@ export class LoggedinPage {
         });
   }
 
-    upload() {
+  upload() {
+    
       if(this.treespecie.value.length < 2){
         alert("Tree specie is required!")
       }else{
