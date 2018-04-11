@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 import {LoginPage} from '../login/login';
 import { Geolocation } from '@ionic-native/geolocation';
 import { PartnersPage } from '../partners/partners';
+import { Platform } from 'ionic-angular';
 
 
 @IonicPage()
@@ -26,9 +27,12 @@ export class LoggedinPage {
 
   constructor(public alertCtrl: AlertController, 
               public navCtrl: NavController,public navParams: NavParams,private camera: Camera, 
-             public fire :AngularFireAuth , public fdb: AngularFireDatabase , private geolocation: Geolocation) {
-
-              this.takePhoto();         
+             public fire :AngularFireAuth , public fdb: AngularFireDatabase , private geolocation: Geolocation
+             ,public plt: Platform) {
+              this.plt.ready().then((readySource) => {
+                this.takePhoto();
+              });
+                       
     }
 
   ionViewDidLoad() {
