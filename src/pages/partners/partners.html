@@ -1,43 +1,31 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="green2" >
     <ion-title>Discover Our Partners</ion-title>
   </ion-navbar>
 
 </ion-header>
 
-<ion-list>
+<ion-content padding class = "partner" >
 
-  <ion-item>
-    <ion-label color = "primary">Take a look on our partners websites to see all the planted trees.</ion-label>
+<ion-list >
+
+  <ion-item color = "green2">
+    <ion-label>Here you can find all the planted trees</ion-label>
   </ion-item>
 
-  <ion-item>
+  <ion-item id = "partners" >
+    
     <ion-thumbnail item-start>
-      <img src="assets/imgs/img.png">
+      <img src="assets/imgs/partner1.jpg">
     </ion-thumbnail>
-    <h2>United Nations</h2>
-    <p>The United Nations is a global organization that brings together its member states • 1988</p>
+    
+    <p>LAVille & Co. provides international </p>
+    <p>consultancy to ADAPT the Terranisme to YOUR territory.</p>
+    
     <button ion-button clear item-end (click)="openURL()">View</button>
   </ion-item>
 
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/img2.png">
-    </ion-thumbnail>
-    <h2>Partner 2</h2>
-    <p>The United Nations is a global organization that brings together its member states • 1988</p>
-    <button ion-button clear item-end (click)="openURL()">View</button>
-  </ion-item>
-
-  <ion-item>
-    <ion-thumbnail item-start>
-      <img src="assets/imgs/img3.png">
-    </ion-thumbnail>
-    <h2>Partner 3</h2>
-    <p>The United Nations is a global organization that brings together its member states • 1988</p>
-    <button ion-button clear item-end (click)="getPartners()">View</button>
-  </ion-item>
-  
 </ion-list>
+</ion-content>

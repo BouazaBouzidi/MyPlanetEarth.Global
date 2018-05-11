@@ -2,6 +2,7 @@ import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { LoginPage } from '../login/login';
+import { Events } from 'ionic-angular';
 
 
 /**
@@ -20,9 +21,13 @@ export class ForgotPage {
 
   @ViewChild('femail') femail;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private fire:AngularFireAuth, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private fire:AngularFireAuth, private alertCtrl: AlertController,public events: Events) {
   }
-
+  ionViewDidLoad() {
+    var test = document.getElementById("test");
+    console.log(test);
+    test.innerText = "RETRY";
+  }
   alert(message: string) {
   this.alertCtrl.create({
     title: 'Hey!',
@@ -43,8 +48,8 @@ export class ForgotPage {
       );
     }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ForgotPage');
+  test(){
+    this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
 
 }

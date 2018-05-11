@@ -1,3 +1,37 @@
 page-loggedin {
 
 }
+.loggedin{
+    background-color: #15b76c;
+}
+
+.label{
+
+    $label-md-text-color-focused:green;
+    $label-wp-text-color-focused: green;
+    
+}
+#down{
+    position:absolute;
+    bottom:2%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#photo{
+    margin-top: 20;
+}
+#centred{
+    margin-right: 20px;
+}
+#placement{
+    margin-top: -14px;
+}
+.alert{
+    //background-color:lightgray;
+    color: #298665;
+
+    button.alert-button{
+        color: #298665;
+      }
+    
+}

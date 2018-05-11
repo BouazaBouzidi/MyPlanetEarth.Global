@@ -4,7 +4,7 @@ import { ForgotPage } from './forgot';
 
 @NgModule({
   declarations: [
-    ForgotPage,
+   // ForgotPage,
   ],
   imports: [
     IonicPageModule.forChild(ForgotPage),

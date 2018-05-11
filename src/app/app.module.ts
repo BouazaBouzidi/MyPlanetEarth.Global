@@ -24,6 +24,9 @@ import { Geolocation } from '@ionic-native/geolocation';
 //import in-app browser
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 
+import { HeaderColor } from '@ionic-native/header-color';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 //firebase config
 const config ={
   
@@ -36,7 +39,7 @@ const config ={
 }
 
 //camera import
-import { Camera,CameraOptions } from '@ionic-native/camera';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -68,8 +71,10 @@ import { Camera,CameraOptions } from '@ionic-native/camera';
     StatusBar,
     SplashScreen,
     Geolocation,
+    HeaderColor,
     InAppBrowser,
     Camera,
+    ScreenOrientation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

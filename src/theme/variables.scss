@@ -38,8 +38,26 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  green1: #3fcb7e,
+  green2: #d7fec1,
+  green3 : #96d696,
+  green4 : #298665,
+  green5: #78a56a,
+  green6: #15b76c
 );
+
+$label-md-text-color-focused : #f4f4f4;
+$label-wp-text-color-focused: #999;
+//$text-input-placeholder-color	: #f4f4f4;
+$text-input-wp-highlight-color	: #f4f4f4;
+$text-input-highlight-color-valid: #f4f4f4;
+
+$text-input-md-highlight-color-invalid: #f4f4f4;
+$text-input-md-highlight-color-valid: #f4f4f4;
+$text-input-md-show-invalid-highlight: #f4f4f4;
+$text-input-md-highlight-color: #f4f4f4;
+$text-input-md-show-valid-highlight: #f4f4f4;
 
 
 // App iOS Variables

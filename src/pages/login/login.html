@@ -1,33 +1,36 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Sign in to MyPlanetEarth
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
+<ion-content padding class ="login" >
 
-<ion-content padding >
+<div id="container">
 
-  <ion-item>
-    <ion-label floating>Email</ion-label>
-    <ion-input type="text" #email></ion-input>
-  </ion-item>
-  
-  <ion-row style="height:6px"></ion-row>
+    <div text-center>
+    <img id = "photo" style="width: 170px; height: 170px;" src="assets/imgs/icon.jpg" ><img>
+    </div>
+    
+    <ion-row style="height:15px"></ion-row>
 
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password" #password></ion-input>
+    <div id = "centred">
+        
+        <ion-item color = "green6"  >
+          <ion-label floating color = "light" >Email</ion-label>
+          <ion-input type="text" #email></ion-input>
+        </ion-item>
+        
+        <ion-row style="height:8px"></ion-row>
 
-  </ion-item>
+        <ion-item color = "green6" >
+          <ion-label floating color = "light" >Password</ion-label>
+          <ion-input type="password" #password ></ion-input>
+        </ion-item>
 
-  <ion-row style="height:9px"></ion-row>
-  
-  
-  <button block ion-button (click)="signInUser()" >Sign in</button>
+        <ion-row style="height:30px"></ion-row>
+        
+        <div id = "buttons">
+            <button block ion-button color= "green1" (click)="signInUser()" >Sign in</button>
+            <button full ion-button color = "green4" (click)="register()" >Create an account</button>
+            <button ion-button item-right clear color = "light" (click)="forgot()" style="float: right;">Forgot Password?</button>
+        </div>
+  </div>
 
-  <button full ion-button color = "light" (click)="register()" >Create an account</button>
-  <button ion-button clear item-right (click)="forgot()" style="float: right;">Forgot Password?</button>
+</div>
 </ion-content>
-

@@ -19,7 +19,9 @@ export class PartnersPage {
               public navCtrl: NavController, 
               public navParams: NavParams , 
               private iab: InAppBrowser)
-               { }
+               {
+                this.getPartners();
+                }
 
   partnersObject: Object = {
     partnerName : "",
@@ -40,19 +42,48 @@ alert(message: string ) {
    }).present();
    }
 
+
+
 getPartners(){
+
+  var dbRef = firebase.database().ref().child(`PartnersList/`);
+  dbRef.once('value',snap => gotdata(snap));
   
-  var dbRef = firebase.database().ref().child('PartnersList/');
-  dbRef.once('value',snap =>  this.partnersObject= snap.val());
-  return this.alert(this.partnersObject.toString());
+  function gotdata(snap){
+    let partnerNamesList: string[] = [];
+    var test= snap.val();
+
+              var Keys = Object.keys(test);
+              for (var i = 0 ; i< Keys.length; i ++ ){
+              var k = Keys[i]
+              partnerNamesList += test[k].partnerName;
+                                 }
+      
+    for (i = 0 ;  i <partnerNamesList.length ; i++){    
+
+        var nameElement = document.createElement('h2');
+        var descriptionElement = document.createElement('p');
+
+        nameElement.textContent = partnerNamesList[i];
+        descriptionElement.textContent = partnerNamesList[i];
+
+        var getElement = document.getElementById("partnersName");
+        getElement.appendChild(nameElement);
+        getElement.appendChild(descriptionElement);
+          
+  }
+
+  }
 
    }  
 
 openURL(){ 
+
   //window.open('http://google.com', '_system');
   const options: InAppBrowserOptions = {
     zoom: 'no'
   }
-  const browser = this.iab.create('https://google.com/','_self',options);
+  const browser = this.iab.create('https://myplanetearthapp.firebaseapp.com/','_self',options);
+
 }
 }

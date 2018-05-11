@@ -1,3 +1,37 @@
 page-login {
+    $label-md-text-color-focused : color($colors-md, secondary);
+}
+.login{
+    background-color: #15b76c;
+}
 
+.label{
+
+    $label-md-text-color-focused : color($colors-md, secondary);
+}
+#rounded {
+    //width: 100%;
+    //height: 69px;
+    //-moz-border-radius: 50px;
+    //-webkit-border-radius: 50px;
+    //border-radius: 5px;
+    //margin-bottom: 4px;  
+    margin-right: 20px;
+
+}
+
+#container {
+    width: 320px; 
+    margin-left:auto; 
+    margin-right: auto; 
+    margin-top: 45px;
+}
+#buttons{
+    margin-left: 14px;
+}
+#centred{
+    margin-right: 20px;
+}
+#photo{
+    margin-top: 40px;
 }

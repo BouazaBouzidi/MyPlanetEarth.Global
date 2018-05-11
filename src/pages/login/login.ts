@@ -4,7 +4,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoggedinPage } from '../loggedin/loggedin';
 import { RegisterPage } from '../register/register';
 import { ForgotPage } from '../forgot/forgot';
-import * as firebase from 'firebase';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 
 @IonicPage()
 @Component({
@@ -16,13 +17,23 @@ export class LoginPage {
   @ViewChild('email') user;
   @ViewChild('password') password;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private fire:AngularFireAuth, private alertCtrl: AlertController) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams, public fire:AngularFireAuth,
+     private alertCtrl: AlertController,private screenOrientation: ScreenOrientation) {
+      //this.navCtrl.setRoot( LoggedinPage );
+      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
+    //this.signin();
+  }
   ionViewDidLoad() {
-    //console.log('ionViewDidLoad LoginPage');
-  }
 
+  }
+  
+  autoSignIn(){
+    if (this.fire.auth.currentUser != null) {
+      this.navCtrl.setRoot( LoggedinPage );
+      console.log("ALL RIGHT");
+    } 
+  }
   alert(message: string, title: string) {
   this.alertCtrl.create({
     title: title,
@@ -33,16 +44,24 @@ export class LoginPage {
 
   signInUser() {
     
-    var myemail = this.user.value.trim();
+    console.log(this.fire.auth.currentUser);
+    console.log(this.fire.auth.currentUser.email);
+    var myemail = this.user.value.trim();  
     this.fire.auth.signInWithEmailAndPassword( myemail, this.password.value )
-    .then( data => {
+    .then( 
+      data => {
+
+
+      //this.fire.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
       this.navCtrl.setRoot( LoggedinPage );
+      //alert("OK");
     })
     .catch( error => {
       this.alert(error.message,"Oups!");
-    })
-  }
+    }) }
 
+
+  
   register() {
   	this.navCtrl.push(RegisterPage);
   }

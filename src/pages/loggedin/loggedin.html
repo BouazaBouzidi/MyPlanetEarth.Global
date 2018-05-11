@@ -1,36 +1,52 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Take a photo</ion-title>
+  <ion-navbar color="green2" hideBackButton="true" >
+    <ion-title>Welcome to MyPlanetEarth.Global</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="loggedin">
   
-  <ion-row style="height:6px"></ion-row>
+ <div *ngIf = "show" id = "placement" text-center>
+        <img id = "photo" style="width: 170px; height: 170px;" src="assets/imgs/icon.jpg" ><img>
+ </div>
 
+  <ion-row style="height:6px"></ion-row>
+  
   <div text-center>
   <img style="width: 280px; height: 350px;" [src]="captureDataUrl" *ngIf="captureDataUrl"/>
   </div>
   
-
-
-  <ion-item *ngIf = "captureDataUrl">
-      <ion-label floating>Tree specie</ion-label>
+  <div id = "centred">
+  <ion-item color = "green6" *ngIf = "captureDataUrl">
+      <ion-label floating color = "light">Tree specie</ion-label>
       <ion-input required type="text" minlength = "2" #treespecie></ion-input>
   </ion-item>
 
-  <ion-item *ngIf = "captureDataUrl">
-      <ion-label floating>Free comment</ion-label>
+  <ion-item color = "green6" *ngIf = "captureDataUrl">
+      <ion-label floating color = "light" >Free comment</ion-label>
       <ion-input type="text" #comment></ion-input>
   </ion-item>
+</div>
+  <ion-row style="height:22px"></ion-row>
 
+<div text-center>
+
+  <button ion-button color = "green4" round (click)="upload()" *ngIf="captureDataUrl">Send</button>
+  <span></span><span></span><span></span><span></span>
   
-  <button ion-button full large (click)="upload()" *ngIf="captureDataUrl"> Send</button>
+  <button ion-button round *ngIf = "show" color="green4" (click)="takePhoto()" >PLANT A TREE &nbsp;<ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+  <button ion-button round *ngIf= "captureDataUrl" color="green4" (click)="takePhoto()" id ="reverse" >RETRY &nbsp;<ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+
   <ion-row style="height:4px"></ion-row>
 
-  <button ion-button full large color="dark" (click)="takePhoto()" *ngIf="captureDataUrl"><pre>Take photo </pre><ion-icon ios="ios-camera" md="md-camera"></ion-icon>
-  </button>
+  <button ion-button *ngIf = "show" round color = "light" (click)="push()"> Check Trees</button>
+  <ion-row style="height:4px"></ion-row>
+</div>
+
+ <button ion-button *ngIf = "show" id ="down" round color = "light" (click)="mailto()" >Add MyPEG icon on your website</button>
+
+
 </ion-content>
