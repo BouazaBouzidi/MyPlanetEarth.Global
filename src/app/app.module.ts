@@ -26,6 +26,8 @@ import { InAppBrowser } from '@ionic-native/in-app-browser';
 
 import { HeaderColor } from '@ionic-native/header-color';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { IonicStorageModule } from '@ionic/storage';
+
 
 //firebase config
 const config ={
@@ -53,10 +55,11 @@ import { Camera } from '@ionic-native/camera';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

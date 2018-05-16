@@ -15,10 +15,10 @@
     <preference name="android-minSdkVersion" value="16" />
     <preference name="BackupWebStorage" value="none" />
     <preference name="SplashMaintainAspectRatio" value="true" />
-    <preference name="FadeSplashScreenDuration" value="1100" />
+    <preference name="FadeSplashScreenDuration" value="1650" />
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
-    <preference name="SplashScreenDelay" value="90000" />
+    <preference name="SplashScreenDelay" value="20000" />
     <preference name="ShowSplashScreenSpinner" value="true" />
     <preference name="SplashScreenSpinnerColor" value="white" />
     <preference name="AutoHideSplashScreen" value="false" />
@@ -101,6 +101,7 @@
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-headercolor" spec="^1.0.0" />
     <plugin name="cordova-plugin-screen-orientation" spec="^3.0.1" />
+    <plugin name="cordova-sqlite-storage" spec="^2.3.1" />
     <engine name="android" spec="~7.0.0" />
     <engine name="ios" spec="~4.5.4" />
     <engine name="browser" spec="5.0.3" />

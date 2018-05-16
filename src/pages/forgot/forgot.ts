@@ -24,9 +24,6 @@ export class ForgotPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,private fire:AngularFireAuth, private alertCtrl: AlertController,public events: Events) {
   }
   ionViewDidLoad() {
-    var test = document.getElementById("test");
-    console.log(test);
-    test.innerText = "RETRY";
   }
   alert(message: string) {
   this.alertCtrl.create({

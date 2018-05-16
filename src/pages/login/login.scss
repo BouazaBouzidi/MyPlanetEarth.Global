@@ -35,3 +35,10 @@ page-login {
 #photo{
     margin-top: 40px;
 }
+.placement{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    background-color: #15b76c;
+}

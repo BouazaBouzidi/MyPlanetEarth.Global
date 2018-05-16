@@ -83,7 +83,7 @@ openURL(){
   const options: InAppBrowserOptions = {
     zoom: 'no'
   }
-  const browser = this.iab.create('https://myplanetearthapp.firebaseapp.com/','_self',options);
+  const browser = this.iab.create('https://myplanetearth.global','_self',options);
 
 }
 }

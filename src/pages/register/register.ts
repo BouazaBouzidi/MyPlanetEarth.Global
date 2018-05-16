@@ -4,6 +4,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { LoggedinPage } from '../loggedin/loggedin';
 import { AngularFireDatabase } from 'angularfire2/database';
 import * as firebase from 'firebase';
+import { Storage } from '@ionic/storage';
+
+
 
 
 @IonicPage()
@@ -19,7 +22,7 @@ export class RegisterPage {
 	@ViewChild('lastName') lname;
   @ViewChild('cpassword') cpassword;
 
-  constructor(private alertCtrl: AlertController,private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams , public fdb: AngularFireDatabase ) {
+  constructor(private alertCtrl: AlertController,private fire: AngularFireAuth, public navCtrl: NavController, public navParams: NavParams , public fdb: AngularFireDatabase,public storage: Storage  ) {
   }
 
   ionViewDidLoad() {
@@ -47,7 +50,10 @@ export class RegisterPage {
                     Uid : this.fire.auth.currentUser.uid,
                     Email : this.user.value
                 })
-                  this.alert('Hey ' + this.fname.value + ', Please enter the tree specie!' , "Welcome!");
+                  this.alert('Hey ' + this.fname.value + ', Take a photo of your tree !' , "Welcome!");
+                  
+                  this.storage.set('isLogged',true);
+
                   this.navCtrl.push(LoggedinPage);
                 })
                 .catch(error => {

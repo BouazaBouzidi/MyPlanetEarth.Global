@@ -3,6 +3,10 @@ page-register {
 }
 .background{
     background-color: #15b76c;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-47%);
 }
 #centred{
     margin-right: 20px;
@@ -12,4 +16,11 @@ page-register {
 }
 .partner{
     background-color:  #15b76c;
+}
+.placement{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #15b76c;
 }

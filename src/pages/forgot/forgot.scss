@@ -1,9 +1,7 @@
 page-forgot {
 
 }
-.background{
-    background-color: #15b76c;
-}
+
 #photoss{
     margin-top: -17px;
 }
@@ -18,4 +16,11 @@ page-forgot {
 }
 #reverse{
     
+}
+.placement{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: #15b76c;
 }

@@ -5,6 +5,7 @@ import { LoggedinPage } from '../loggedin/loggedin';
 import { RegisterPage } from '../register/register';
 import { ForgotPage } from '../forgot/forgot';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
+import { Storage } from '@ionic/storage';
 
 
 @IonicPage()
@@ -18,22 +19,17 @@ export class LoginPage {
   @ViewChild('password') password;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public fire:AngularFireAuth,
-     private alertCtrl: AlertController,private screenOrientation: ScreenOrientation) {
+     private alertCtrl: AlertController,private screenOrientation: ScreenOrientation,public storage: Storage ) {
       //this.navCtrl.setRoot( LoggedinPage );
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
     //this.signin();
   }
   ionViewDidLoad() {
+    console.log(this.fire.auth.currentUser);
+  }
 
-  }
   
-  autoSignIn(){
-    if (this.fire.auth.currentUser != null) {
-      this.navCtrl.setRoot( LoggedinPage );
-      console.log("ALL RIGHT");
-    } 
-  }
   alert(message: string, title: string) {
   this.alertCtrl.create({
     title: title,
@@ -44,22 +40,22 @@ export class LoginPage {
 
   signInUser() {
     
-    console.log(this.fire.auth.currentUser);
-    console.log(this.fire.auth.currentUser.email);
+    //console.log(this.fire.auth.currentUser);
+    //console.log(this.fire.auth.currentUser.email);
+    
     var myemail = this.user.value.trim();  
+
     this.fire.auth.signInWithEmailAndPassword( myemail, this.password.value )
     .then( 
       data => {
-
-
       //this.fire.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
-      this.navCtrl.setRoot( LoggedinPage );
+      this.navCtrl.push( LoggedinPage );
+      this.storage.set('isLogged',true);
       //alert("OK");
     })
     .catch( error => {
       this.alert(error.message,"Oups!");
     }) }
-
 
   
   register() {
