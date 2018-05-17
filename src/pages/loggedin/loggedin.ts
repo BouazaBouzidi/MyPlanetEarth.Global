@@ -92,14 +92,10 @@ export class LoggedinPage {
    , (err) => {
           //alert(err.message);
         });
-
   }
-
   push(){
     this.navCtrl.push(PartnersPage);
   }
- 
-
   upload() {
     
       if(this.treespecie.value.length < 2){
@@ -112,7 +108,6 @@ export class LoggedinPage {
           duration: 3000
       });
       load.present();
-
 
       var uid = this.fire.auth.currentUser.uid;
       var email = this.fire.auth.currentUser.email;

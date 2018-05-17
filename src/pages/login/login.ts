@@ -52,6 +52,7 @@ export class LoginPage {
       this.navCtrl.push( LoggedinPage );
       this.storage.set('isLogged',true);
       //alert("OK");
+      //this.storage.clear();
     })
     .catch( error => {
       this.alert(error.message,"Oups!");
